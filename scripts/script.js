@@ -92,6 +92,23 @@ function run() {
 
 // TODO: load code to memory from textarea
 function loadcode() {
-  // implementar
-  console.log('implementar');
+  let code = document.getElementById('code').value;
+  code = code.trim().split('\n');
+  // code.pop();
+  console.log(code);
+  for (let i = 0; i < code.length; i++) {
+    mem[i + 1] = parseInt(code[i], 16);
+    // DEBUG: console.log(mem[i].toString(16));
+  }
+  // refactor despues, update memarray?
+  let memstring = "";
+  for (let i = 0; i < 16; i += 4) {
+    let row = `${mem[i].toString(16).padStart(2, "0")} `;
+    row += `${mem[i + 1].toString(16).padStart(2, "0")} `;
+    row += `${mem[i + 2].toString(16).padStart(2, "0")} `;
+    row += `${mem[i + 3].toString(16).padStart(2, "0")} `;
+    memstring += row + "\n";
+    // DEBUG: console.log(row);
+  }
+  document.getElementById('memory').innerHTML = memstring;
 }
