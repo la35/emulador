@@ -24,10 +24,11 @@
       <div class="row">
         <div class="col-sm">
           <h1>Código</h1>
-          <textarea class="text-muted text-monospace" name="name" rows="5" cols="20">0x1  a5&#10;0x2  26&#10;0x3  c7&#10;0x4  00&#10;</textarea>
+          <textarea class="text-muted text-monospace" name="name" rows="14" cols="20">a5&#10;26&#10;c7&#10;00&#10;</textarea>
           <hr>
-          <button class="btn btn-primary" type="button" name="button">Run</button>
+          <button onclick="run()" class="btn btn-primary" type="button" name="button">Run</button>
           <button onclick="step()" class="btn btn-primary" type="button" name="button">Step</button>
+          <button onclick="loadcode()" class="btn btn-primary" type="button" name="button">Load Code</button>
         </div>
         <div class="col-sm">
           <h2>Address</h2>
@@ -36,17 +37,18 @@
           <input id="datain" class="text-muted text-monospace" type="text" name="" value="00000000">
           <hr>
           <button onclick="load()" class="btn btn-primary" type="button" name="button">Load</button>
-          <button class="btn btn-primary" type="button" name="button">Look</button>
         </div>
         <div class="col-sm">
           <h2>Memoria</h2>
-          <textarea id="memory" class="text-muted text-monospace" name="name" rows="5" cols="20">00 a5 26 c7&#10;00 03 02 00&#10;00 00 00 00&#10;00 00 00 00&#10;</textarea>
-          <h2>Registro R</h2>
-          <input id="r" class="text-muted text-monospace" type="text" name="" value="00000000">
-          <h2>Registro IR</h2>
-          <input id="ir" class="text-muted text-monospace" type="text" name="" value="00000000">
-          <h2>PC</h2>
-          <input id="pc" class="text-muted text-monospace" type="text" name="" value="0001">
+          <textarea id="memory" class="text-muted text-monospace" name="name" rows="5" cols="20" disabled>00 a5 26 c7&#10;00 03 02 00&#10;00 00 00 00&#10;00 00 00 00&#10;</textarea>
+          <hr>
+          <h2>Registros</h2>
+          <h3>R</h3>
+          <input id="r" class="text-muted text-monospace" type="text" name="" value="00000000" disabled>
+          <h3>IR</h3>
+          <input id="ir" class="text-muted text-monospace" type="text" name="" value="00000000" disabled>
+          <h3>PC</h3>
+          <input id="pc" class="text-muted text-monospace" type="text" name="" value="0001" disabled>
         </div>
       </div>
       <hr>
@@ -58,7 +60,7 @@
 
     <footer class="footer py-3 text-center mt-auto">
       <hr>
-      <a href="https://github.com/la35/toy-8-emulator" target="_blank" class="text-center" style="font-size: 48px; color: black;">
+      <a href="https://github.com/la35/emulador" target="_blank" class="text-center" style="font-size: 48px; color: black;">
         <i class="fa fa-github"></i>
       </a>
       <p class="text-center text-muted">La 35 &copy 2020</p>
