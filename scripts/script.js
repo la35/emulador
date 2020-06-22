@@ -40,10 +40,13 @@ function step() {
   // get memory address from instruction
   let addr = ir & 0xF;
 
-  // DEBUG: console.log("IR: " + ir.toString(2).padStart(8, "0"));
-  // DEBUG: console.log("PC: " + pc.toString(2).padStart(4, "0"));
-  // DEBUG: console.log("Opcode: " + op.toString(2).padStart(4, "0"));
-  // DEBUG: console.log("Address: " + addr.toString(2).padStart(4, "0"));
+  document.getElementById('linenos').focus();
+  document.getElementById('linenos').setSelectionRange((pc - 1) * 6, ((pc - 1) * 6) + 5);
+
+  console.log("IR: " + ir.toString(2).padStart(8, "0"));
+  console.log("PC: " + pc.toString(2).padStart(4, "0"));
+  console.log("Opcode: " + op.toString(2).padStart(4, "0"));
+  console.log("Address: " + addr.toString(2).padStart(4, "0"));
 
   // TODO: highlight current line of code
 
@@ -73,6 +76,7 @@ function step() {
     // DEBUG: console.log(row);
   }
   // update UI
+  console.log('done waiting');
   document.getElementById('memory').innerHTML = memstring;
   document.getElementById('ir').value = ir.toString(2).padStart(8, '0');
   document.getElementById('pc').value = pc.toString(2).padStart(4, '0');
@@ -111,4 +115,11 @@ function loadcode() {
     // DEBUG: console.log(row);
   }
   document.getElementById('memory').innerHTML = memstring;
+  // reset registers
+  pc = 1;
+  ir = 0;
+  r = 0;
+  document.getElementById('ir').value = ir.toString(2).padStart(8, '0');
+  document.getElementById('pc').value = pc.toString(2).padStart(4, '0');
+  document.getElementById('r').value = r.toString(2).padStart(8, '0');
 }
