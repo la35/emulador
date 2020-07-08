@@ -1,12 +1,3 @@
-.led-red {
-    margin: 20px auto;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-    display: inline-block;
-}
-
 textarea {
   resize: none;
 }
