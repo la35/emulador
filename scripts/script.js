@@ -52,15 +52,15 @@ function step() {
   pc += 1;
   updateRegisters();
   // decode instruction
-  if (op == 0) return 0;                     // halt
+  if (op == 0) return 0;                         // halt
   switch(op) {
-    case 2:  r = r + mem[addr];      break;  // add
-    case 4:  r = r & mem[addr];      break;  // and
-    case 6:  r = r ^ mem[addr];      break;  // xor
-    case 8:  r = addr;               break;  // load address
-    case 10: r = mem[addr];          break;  // load word
-    case 12: mem[addr] = r;          break;  // store word
-    case 14: if (r == 0) pc = addr;  break;  // branch if zero
+    case 2:  r = (r + mem[addr]) % 256;  break;  // add
+    case 4:  r = r & mem[addr];          break;  // and
+    case 6:  r = r ^ mem[addr];          break;  // xor
+    case 8:  r = addr;                   break;  // load address
+    case 10: r = mem[addr];              break;  // load word
+    case 12: mem[addr] = r;              break;  // store word
+    case 14: if (r == 0) pc = addr;      break;  // branch if zero
   }
   // update UI
   document.getElementById('memory').innerHTML = updateMemory();
